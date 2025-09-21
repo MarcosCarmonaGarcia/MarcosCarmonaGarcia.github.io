@@ -39,7 +39,7 @@ export type SiteConfig = {
 };
 
 const siteConfig: SiteConfig = {
-    website: 'https://example.com',
+    website: 'https://MarcosCarmonaGarcia.github.io',
     title: 'Marcos Carmona García',
     subtitle: 'Aprendiendo a programar',
     description: 'Web developer and designer',
@@ -62,8 +62,8 @@ const siteConfig: SiteConfig = {
             href: '/blog'
         },
         {
-            text: 'Tags',
-            href: '/tags'
+            text: 'GitHub',
+            href: 'https://github.com/MarcosCarmonaGarcia'
         }
     ],
     footerNavLinks: [
