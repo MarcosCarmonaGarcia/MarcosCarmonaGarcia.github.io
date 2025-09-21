@@ -44,7 +44,7 @@ const siteConfig: SiteConfig = {
     subtitle: 'Aprendiendo a programar',
     description: 'Web developer and designer',
     image: {
-        src: '/yo.jpg',
+        src: '/yo.jpeg',
         alt: 'Marcos Carmona García'
 
     },
