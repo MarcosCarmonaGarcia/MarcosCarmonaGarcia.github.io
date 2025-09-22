@@ -54,7 +54,7 @@ const siteConfig: SiteConfig = {
             href: '/'
         },
         {
-            text: 'Projects',
+            text: 'Proyectos',
             href: '/projects'
         },
         {
@@ -76,7 +76,7 @@ const siteConfig: SiteConfig = {
             href: '/contact'
         },
         {
-            text: 'Terms',
+            text: 'Terminos de Servicio',
             href: '/terms'
         },
 
@@ -96,22 +96,22 @@ const siteConfig: SiteConfig = {
         }
     ],
     hero: {
-        title: 'Hi There & Welcome to My Corner of the Web!',
-        text: "I'm **Ethan Donovan**, a web developer at Amazing Studio, dedicated to the realms of collaboration and artificial intelligence. My approach involves embracing intuition, conducting just enough research, and leveraging aesthetics as a catalyst for exceptional products. I have a profound appreciation for top-notch software, visual design, and the principles of product-led growth. Feel free to explore some of my coding endeavors on <a href='https://github.com/JustGoodUI/dante-astro-theme'>GitHub</a> or follow me on <a href='https://twitter.com/justgoodui'>Twitter/X</a>.",
+        title: 'Hola a todos, bienvenidos a mi sitio en la web!',
+        text: "Me llamo Marcos Carmona García. Soy programador aficionado en constante aprendizaje: estudio lenguajes y herramientas para desarrollo y seguridad. Me interesa especialmente el pentesting y el hacking ético, y practico con ejercicios y proyectos para mejorar mis habilidades.",
         image: {
-            src: '/hero.jpeg',
+            src: '/yo.jpg',
             alt: 'A person sitting at a desk in front of a computer'
         },
         actions: [
             {
-                text: 'Get in Touch',
+                text: 'Contacto',
                 href: '/contact'
             }
         ]
     },
     subscribe: {
-        title: 'Subscribe to Dante Newsletter',
-        text: 'One update per week. All the latest posts directly in your inbox.',
+        title: 'Newsletter',
+        text: 'Una actualización por semana. Todas las últimas publicaciones directamente en tu bandeja de entrada.',
         formUrl: '#'
     },
     postsPerPage: 8,
