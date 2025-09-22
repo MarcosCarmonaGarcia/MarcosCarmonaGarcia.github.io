@@ -101,12 +101,8 @@ const siteConfig: SiteConfig = {
                 href: '/contact'
             }
         ]
-    },
-    subscribe: {
-        title: 'Newsletter',
-        text: 'Una actualización por semana. Todas las últimas publicaciones directamente en tu bandeja de entrada.',
-        formUrl: '#'
-    },
+    }
+},
     postsPerPage: 8,
     projectsPerPage: 8
 };
