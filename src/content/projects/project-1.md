@@ -50,7 +50,7 @@ El script escanea archivos PDF y TXT en busca de patrones que coincidan con dire
 Ejecuta el script pasando como argumento el archivo o directorio que deseas analizar:
 
 ```bash
-python extractor_emails.py archivo.pdf
+python3 extractor_emails.py archivo.pdf
 ```
 
 El script procesará el archivo y mostrará en consola las direcciones de correo electrónico encontradas.
