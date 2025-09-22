@@ -4,64 +4,67 @@ description: "Script hecho en python para la extracción de emails de diversos f
 publishDate: "2025"
 seo:
   image:
-    src: "/project-1.jpg"
+    src: "/Extractor.png"
     alt: "Project preview"
 ---
 
+![Project preview](/Extractor.png)
 
-![Project preview](/project-1.jpg)
+Claro, a continuación te presento una descripción en formato Markdown para tu script de extracción de correos electrónicos en Python:
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+---
 
-**Project Overview:**
-EcoBuddy is a revolutionary mobile application designed to make sustainable living accessible, engaging, and rewarding. With a focus on gamification and real-world impact, EcoBuddy encourages users to adopt eco-friendly habits, reduce their carbon footprint, and contribute to a healthier planet.
+# Extractor de Correos Electrónicos
 
-## Objectives
+Este script en Python permite extraer direcciones de correo electrónico desde documentos en formato PDF y TXT. Es útil para auditorías de seguridad, análisis forenses o recopilación de datos en proyectos de pentesting.
 
-1. Develop a user-friendly mobile app that motivates individuals to adopt sustainable practices in their daily lives.
-2. Utilize gamification elements to make sustainable living fun and interactive.
-3. Provide educational resources and personalized challenges to empower users to make informed eco-conscious decisions.
+## 🧩 Descripción
 
-## Features
+El script escanea archivos PDF y TXT en busca de patrones que coincidan con direcciones de correo electrónico válidas. Utiliza expresiones regulares para identificar y extraer los correos electrónicos encontrados en el contenido de los documentos.
 
-1. **EcoScore and Challenges:**
+## ⚙️ Requisitos
 
-- Users are assigned an EcoScore based on their sustainable activities and choices.
-- Daily and weekly challenges encourage users to adopt new habits and compete with friends or the community to earn EcoPoints.
+* Python 3.x
+* Bibliotecas necesarias:
 
-2. **Personalized Eco-Goals:**
+  * `re` (para expresiones regulares)
+  * `PyPDF2` (para leer archivos PDF)
 
-- Users can set and track personalized eco-goals, such as reducing plastic usage, conserving water, or choosing eco-friendly transportation.
-- The app provides tips and suggestions to help users achieve their goals.
+## 🛠️ Instalación
 
-3. **Green Rewards Marketplace:**
+1. Clona el repositorio:
 
-- EcoPoints earned through challenges and sustainable actions can be redeemed in a virtual Green Rewards Marketplace.
-- The marketplace offers discounts on eco-friendly products, services, and even contributions to environmental causes.
+   ```bash
+   git clone https://github.com/MarcosCarmonaGarcia/Extractor_emails.git
+   cd Extractor_emails
+   ```
 
-4. **Community Hub:**
+2. Instala las dependencias necesarias:
 
-- A community feature allows users to connect, share their eco-friendly achievements, and inspire others.
-- Users can join local eco-groups, organize clean-up events, and collaborate on sustainability projects.
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-5. **EcoEducator AI Assistant:**
+## 📄 Uso
 
-- An AI-powered assistant, EcoEducator, provides personalized eco-tips, facts, and information based on users' preferences and habits.
-- Users can chat with EcoEducator for instant advice on sustainable living.
+Ejecuta el script pasando como argumento el archivo o directorio que deseas analizar:
 
-## Technology Stack
+```bash
+python extractor_emails.py archivo.pdf
+```
 
-- Frontend: React Native for cross-platform mobile app development.
-- Backend: Firebase for real-time data synchronization and user authentication.
-- Database: Firestore for scalable and flexible data storage.
-- AI Integration: Dialogflow for natural language processing and conversation with EcoEducator.
+El script procesará el archivo y mostrará en consola las direcciones de correo electrónico encontradas.
 
-## Outcome
+## 🔐 Aplicaciones
 
-EcoBuddy has successfully created a community of environmentally conscious individuals who actively participate in sustainable living practices. The app not only educates and motivates users but also provides tangible rewards for their commitment to a greener lifestyle, fostering a positive impact on the environment.
+* Auditorías de seguridad para identificar correos electrónicos expuestos.
+* Análisis forenses de documentos.
+* Recopilación de datos para pruebas de penetración.
 
-## Client Testimonial
+## 📄 Licencia
 
-> We couldn't be happier with the results delivered by Ethan Donovan. From the initial concept discussions to the final product, their responsiveness and collaborative approach were impressive. Our startup's website now stands out, thanks to their creative input and commitment to excellence.
+Este proyecto está bajo la Licencia MIT.
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+---
+
+
