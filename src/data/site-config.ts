@@ -44,7 +44,7 @@ const siteConfig: SiteConfig = {
     subtitle: 'Aprendiendo a programar',
     description: 'Web developer and designer',
     image: {
-        src: '/yo.jpg',
+        src: '/black.jpg',
         alt: 'Marcos Carmona García'
 
     },
@@ -68,11 +68,11 @@ const siteConfig: SiteConfig = {
     ],
     footerNavLinks: [
         {
-            text: 'About',
+            text: 'Sobre mí',
             href: '/about'
         },
         {
-            text: 'Contact',
+            text: 'Contacto',
             href: '/contact'
         },
         {
@@ -83,16 +83,12 @@ const siteConfig: SiteConfig = {
     ],
     socialLinks: [
         {
-            text: 'Dribbble',
-            href: 'https://dribbble.com/'
+            text: 'GitHub',
+            href: 'https://github.com/MarcosCarmonaGarcia'
         },
         {
-            text: 'Instagram',
-            href: 'https://instagram.com/'
-        },
-        {
-            text: 'X/Twitter',
-            href: 'https://twitter.com/'
+            text: 'X',
+            href: 'https://X.com/'
         }
     ],
     hero: {
