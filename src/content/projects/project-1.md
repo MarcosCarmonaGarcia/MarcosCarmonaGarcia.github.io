@@ -10,8 +10,6 @@ seo:
 
 ![Project preview](/Extractor.png)
 
-Claro, a continuación te presento una descripción en formato Markdown para tu script de extracción de correos electrónicos en Python:
-
 ---
 
 # Extractor de Correos Electrónicos
