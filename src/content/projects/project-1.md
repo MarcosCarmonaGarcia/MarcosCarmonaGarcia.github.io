@@ -1,12 +1,13 @@
 ---
-title: 'Extractor de emails de documentos PDF/TXT'
-description: 'Script hecho en python para la extracción de emails de diversos formatos.
-publishDate: 'Septiembre de 2025'
+title: "Extractor de emails de documentos PDF/TXT"
+description: "Script hecho en python para la extracción de emails de diversos formatos."
+publishDate: "2025"
 seo:
   image:
-    src: '/project-1.jpg'
-    alt: Project preview
+    src: "/project-1.jpg"
+    alt: "Project preview"
 ---
+
 
 ![Project preview](/project-1.jpg)
 
