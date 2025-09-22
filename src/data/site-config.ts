@@ -101,8 +101,9 @@ const siteConfig: SiteConfig = {
                 href: '/contact'
             }
         ]
-    }
-},
+    },
+
+
     postsPerPage: 8,
     projectsPerPage: 8
 };
