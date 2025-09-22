@@ -86,10 +86,7 @@ const siteConfig: SiteConfig = {
             text: 'GitHub',
             href: 'https://github.com/MarcosCarmonaGarcia'
         },
-        {
-            text: 'X',
-            href: 'https://X.com/'
-        }
+
     ],
     hero: {
         title: 'Hola a todos, bienvenidos a mi sitio en la web!',
