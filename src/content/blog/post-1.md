@@ -82,6 +82,6 @@ nmap --script smb-enum-shares ip_objetivo
 ````
 
 Estos son solo algunos de los parámetros que nos sirve Nmap, pero como es una herramienta tan completa, aquí os dejo una chuleta en PDF con los comandos más utilizados. 
-[Chuleta Nmap](/Descargas/Chuleta_nmap.pdf)
+[Chuleta Nmap](https://drive.google.com/file/d/1m9Vn_F73hjfJ_Xc9-51HafyLIv8evohG/view?usp=share_link)
 
 
