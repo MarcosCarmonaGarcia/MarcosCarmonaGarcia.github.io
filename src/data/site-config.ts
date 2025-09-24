@@ -41,7 +41,7 @@ export type SiteConfig = {
 const siteConfig: SiteConfig = {
     website: 'https://MarcosCarmonaGarcia.github.io',
     title: 'Marcos Carmona García',
-    subtitle: 'Aprendiendo a programar',
+    subtitle: 'Aprendiendo a programar, pentesting y hacking ético',
     description: 'Web developer and designer',
     image: {
         src: '/black.jpg',
