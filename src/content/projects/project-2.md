@@ -1,5 +1,5 @@
 ---
-title: 'Toolkit_prentesting'
+title: 'Toolkit_pentesting'
 description: Herramienta multipropósito pentesting
 publishDate: 'Sep 26 2025'
 isFeatured: true
@@ -8,6 +8,7 @@ seo:
     src: '/project-3.jpg'
 ---
 
+![Toolkit](/toolkit.png)
 
 
 # 🛠️ Toolkit_pentesting
