@@ -1,3 +1,15 @@
+---
+title: 'Toolkit_prentesting'
+description: Herramienta multipropósito pentesting
+publishDate: 'Sep 26 2025'
+isFeatured: true
+seo:
+  image:
+    src: '/project-3.jpg'
+---
+
+
+
 # 🛠️ Toolkit_pentesting
 **Herramienta multipropósito de pentesting**  
 *Por Marcos Carmona García*
