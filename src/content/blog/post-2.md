@@ -34,7 +34,7 @@ El resultado es el de la imagen, nos ha encontrado la contraseña de una manera 
 
 Com veis, el procedimeinto es sumamente fácil.
 
-## Procediemiento mediante Metasploit
+## Procedimiento mediante Metasploit
 
 Ahora vamos a vulenrar el servidor FTP mediante un exploit usando para ello el framework **Metasploit**.
 
