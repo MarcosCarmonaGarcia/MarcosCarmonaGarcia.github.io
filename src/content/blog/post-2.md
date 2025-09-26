@@ -9,3 +9,8 @@ seo:
     src: '/Nmap.png'
     alt: Imagen creada con Chat GPT
 ---
+
+<<a href="basico.png" target="_blank">
+  <img src="basico.png" alt="Descripción de la imagen" width="300">
+</a>
+>
