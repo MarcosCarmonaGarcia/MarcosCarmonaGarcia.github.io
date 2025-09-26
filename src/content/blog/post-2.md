@@ -32,7 +32,7 @@ El resultado es el de la imagen, nos ha encontrado la contraseña de una manera 
 
 [![pass_ftp](/pass_ftp.png)](/pass_ftp.png)
 
-Com veis, el procedimeinto es sumamente fácil.
+Como veis, el procedimiento es sumamente fácil.
 
 ## Procedimiento mediante Metasploit
 
