@@ -26,7 +26,7 @@ El comando es muy fácil:
 ````bash 
 hydra -l admin -P /usr/share/wordlists/rockyou.txt ftp://172.17.0.2 
 ````
-Vemos que el parámetros -l está en minúsculas por que ya conocemos el usuario, de lo contrario hay que ponerlo en mayúculas y pasar un diccionario que es, precisamente, lo que hemos hecho con las passwords.
+Vemos que el parámetro -l está en minúsculas por que ya conocemos el usuario, de lo contrario hay que ponerlo en mayúsculas y pasar un diccionario que es, precisamente, lo que hemos hecho con las passwords.
 
 El resultado es el de la imagen, nos ha encontrado la contraseña de una manera rápida porque el servicio está configurado con una muy débil.
 
@@ -34,7 +34,7 @@ El resultado es el de la imagen, nos ha encontrado la contraseña de una manera 
 
 Com veis, el procedimeinto es sumamente fácil.
 
-## Procediemiento mediante metasploit
+## Procediemiento mediante Metasploit
 
 Ahora vamos a vulenrar el servidor FTP mediante un exploit usando para ello el framework **Metasploit**.
 
