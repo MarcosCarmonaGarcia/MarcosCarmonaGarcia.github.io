@@ -34,7 +34,7 @@ curl -I https://tusitio.com/xmlrpc.php
 
 ## Fuerza bruta a login Wordpress
 
-Ahora toca el siguiente paso, la fuerza bruta al usuario econtrado, para eso seguimos con WPScan.
+Ahora toca el siguiente paso, la fuerza bruta al usuario encontrado, para eso seguimos con WPScan.
 
 ```bash
  wpscan --url 'http://localhost:8000' -U admin -P diccionario
@@ -42,7 +42,7 @@ Ahora toca el siguiente paso, la fuerza bruta al usuario econtrado, para eso seg
 
  [![Bruteforce](/Bruteforce_w.png)](/Bruteforce_w.png)
 
- Vemos como usando el usuario admin y un diccionario de contraseñas, nos lo ecuentra rápido.
+ Vemos como usando el usuario admin y un diccionario de contraseñas, nos lo encuentra rápido.
 
  ## Enumeración de plugins
 
