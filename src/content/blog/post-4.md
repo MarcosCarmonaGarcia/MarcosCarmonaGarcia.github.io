@@ -10,7 +10,7 @@ seo:
     alt: Imagen creada con Chat GPT
 ---
 
-![WPScan](/wpscan_image.png)
+![WPScan](/wordpress_pentest.png)
 
 ***Resumen***: Wordpress es el CMS (Gestor de contenidos) más usado hoy en día. Por eso es el más susceptible de ser atacado por los malos. Su jerarquía de plsugins y themes lo hacen extremadamente vulnerable si no se actualizan todos sus comaponentes.
 
