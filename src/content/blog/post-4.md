@@ -12,7 +12,7 @@ seo:
 
 ![WPScan](/wordpress_pentest.png)
 
-***Resumen***: Wordpress es el CMS (Gestor de contenidos) más usado hoy en día. Por eso es el más susceptible de ser atacado por los malos. Su jerarquía de plsugins y themes lo hacen extremadamente vulnerable si no se actualizan todos sus comaponentes.
+***Resumen***: Wordpress es el CMS (Gestor de contenidos) más usado hoy en día. Por eso es el más susceptible de ser atacado por los malos. Su jerarquía de plugins y themes lo hacen extremadamente vulnerable si no se actualizan todos sus comaponentes.
 
 ***Nota***: En este caso el laboratorio es una instancia de Worpress dockerizada que he conseguido en este [repo de Github](https://github.com/fsgreco/docker-wordpress).
 
