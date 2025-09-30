@@ -44,7 +44,7 @@ const siteConfig: SiteConfig = {
     subtitle: 'Aprendiendo a programar, pentesting y hacking ético',
     description: 'Web developer and designer',
     image: {
-        src: '/black.jpg',
+        src: '/boca_cerrada.png',
         alt: 'Marcos Carmona García'
 
     },

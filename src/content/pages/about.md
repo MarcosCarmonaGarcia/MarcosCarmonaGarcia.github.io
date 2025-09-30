@@ -8,7 +8,7 @@ seo:
     alt: A curious learner exploring programming and cybersecurity
 ---
 
-![Alt text for image](/about.jpeg)
+![Alt text for image](/boca_cerrada.jpeg)
 
 ## Marcos Carmona García – Aprendiz de Programación y Entusiasta del Pentesting
 
