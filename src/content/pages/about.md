@@ -4,11 +4,11 @@ seo:
   title: About Me
   description: Learn more about Marcos Carmona García, an apprentice programmer passionate about learning, technology, and ethical hacking.
   image:
-    src: '/yo.jpg'
+    src: '/boca_cerrada.png'
     alt: A curious learner exploring programming and cybersecurity
 ---
 
-![Alt text for image](/boca_cerrada.jpeg)
+![Alt text for image](/boca_cerrada.png)
 
 ## Marcos Carmona García – Aprendiz de Programación y Entusiasta del Pentesting
 

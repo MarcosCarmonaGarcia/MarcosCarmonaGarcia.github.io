@@ -96,7 +96,7 @@ const siteConfig: SiteConfig = {
         title: 'Hola a todos, bienvenidos a mi sitio en la web!',
         text: "Me llamo Marcos Carmona García. Soy programador aficionado en constante aprendizaje: estudio lenguajes y herramientas para desarrollo y seguridad. Me interesa especialmente el pentesting y el hacking ético, y practico con ejercicios y proyectos para mejorar mis habilidades.",
         image: {
-            src: '/yo.jpg',
+            src: '/boca_cerrada.png',
             alt: 'A person sitting at a desk in front of a computer'
         },
         actions: [
