@@ -12,10 +12,10 @@ seo:
 
 ![xss](/xss.png)
 
-***Resumen***: La vulnerabilidad consiste en inyectar código malicioso en una web, pudiendo así almacenarlo para que se ejecute cada cvez que el usuario visite una parte de la página, como un comentario o un post en concreto.
+***Resumen***: La vulnerabilidad consiste en inyectar código malicioso en una web, pudiendo así almacenarlo para que se ejecute cada vez que el usuario visite una parte de la página, como un comentario o un post en concreto.
 En este artículo, vamos a ver la forma básica y la almacenada.
 
-***Nota***: Este laboratorio ha sido creado por y para este post con chatGPT, no utilices esta vulenrabilidad con sitios que no tengas permiso.
+***Nota***: Este laboratorio ha sido creado por y para este post con chatGPT, no utilices esta vulnerabilidad con sitios que no tengas permiso.
 
 ***Procedimiento***: Una vez tenemos comprobación de que la web es vulnerable, procedemos a inyectar código malicioso para bien robar credenciales o infectar una máquina.
 
@@ -52,7 +52,7 @@ Vamos a inyectar un código en otro comentario donde nos pida las credenciales y
 
 [![nc_xss](/nc_xss.png)](/nc_xss.png)
 
-Ahora al visitar o recargar el comentario, nbos pedirá las credenciales.
+Ahora al visitar o recargar el comentario, nos pedirá las credenciales.
 
 [![pide_xss](/pide_xss.png)](/pide_xss.png)
 
@@ -67,7 +67,7 @@ Pero puede que nuestro payload no funcione, bien porque la web está protegida o
 ```bash
  "><script>alert(1)</script>
  ````
-Si existen palabras protegidas que nos impidan ejecutar el payload, solo tenemos que usar otro que facimente encontraremos por internet. [eventos_xss](https://github.com/payloadbox/xss-payload-list)
+Si existen palabras protegidas que nos impidan ejecutar el payload, solo tenemos que usar otro que facilmente encontraremos por internet. [eventos_xss](https://github.com/payloadbox/xss-payload-list)
 
 [![eventos_xss](/eventos_xss.png)](/eventos_xss.png)
 
