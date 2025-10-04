@@ -10,11 +10,11 @@ seo:
     alt: Imagen creada con Chat GPT
 ---
 
-![redirect](/redirect.png)
+![redirect](/or.png)
 
 ***Resumen***: Open Redirect es una vulnerabilidad que nos permite manipular un enlace o hipervínculo para poder llevar al usuario a donde queramos.
 
-***Nota*** El laboratorio ha sido creado con chatGPT y desplegado en un Kali Linux.
+***Nota***: El laboratorio ha sido creado con chatGPT y desplegado en un Kali Linux.
 
 ## Open Redirect básico
 
