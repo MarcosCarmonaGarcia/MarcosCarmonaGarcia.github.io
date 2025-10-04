@@ -20,7 +20,7 @@ seo:
 
 ## Procedimiento
 
-La cuestión es encontrar un parámetro vulenrable donde podamos hacer un Path Traversal para recorrer todo el arbol de directorios hasta el archivo que queramos leer. En este caso práctico es muy fácil ya que solo tenemos que ir hacia atrás el número suficiente de veces como para poder leer el archivo deseado-
+La cuestión es encontrar un parámetro vulenrable donde podamos hacer un Path Traversal para recorrer todo el arbol de directorios hasta el archivo que queramos leer. En este caso práctico es muy fácil ya que solo tenemos que ir hacia atrás el número suficiente de veces como para poder leer el archivo deseado.
 
 ```bash
 192.168.1.35/mutillidae/index.php?page=arbitrary-file-inclusion.php/../../../../../etc/passwd
