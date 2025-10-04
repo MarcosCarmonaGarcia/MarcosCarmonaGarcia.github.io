@@ -29,6 +29,6 @@ Y vemos como conseguimos leer el archivo.
 
 [![traversal](/traversal.png)](/traversal.png)
 
-Este es la forma más básica de hacerlos, pero no siempre nos vamos a encontrar las cosas tan fáciles.
+Este es la forma más básica de hacerlo, pero no siempre nos vamos a encontrar las cosas tan fáciles.
 
 
