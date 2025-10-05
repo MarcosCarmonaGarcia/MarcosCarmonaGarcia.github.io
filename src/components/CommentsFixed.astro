@@ -1,0 +1,142 @@
+---
+interface Props {
+    class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`giscus-container ${className}`}>
+    <!-- Mensaje de carga -->
+    <div id="giscus-loading" class="giscus-loading">
+        <p>Cargando comentarios...</p>
+    </div>
+
+    <!-- Contenedor para Giscus -->
+    <div class="giscus"></div>
+
+    <!-- Mensaje de error si no funciona -->
+    <div id="giscus-error" class="giscus-error hidden">
+        <p>❌ No se pudieron cargar los comentarios.</p>
+        <p><a href="https://github.com/MarcosCarmonaGarcia/MarcosCarmonaGarcia.github.io/discussions" target="_blank">Ver discussions en GitHub →</a></p>
+    </div>
+</div>
+
+<style>
+    .giscus-container {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        min-height: 200px;
+    }
+
+    .giscus {
+        width: 100%;
+        min-height: 150px;
+    }
+
+    .giscus-loading {
+        text-align: center;
+        padding: 2rem;
+        color: rgba(var(--text-main, 23 23 23) / 0.6);
+        font-style: italic;
+    }
+
+    .giscus-error {
+        padding: 1.5rem;
+        border: 1px solid rgba(var(--text-main, 23 23 23) / 0.2);
+        border-radius: 0.5rem;
+        background-color: rgba(var(--text-main, 23 23 23) / 0.05);
+        color: rgba(var(--text-main, 23 23 23) / 0.7);
+    }
+
+    .giscus-error a {
+        color: var(--text-accent, #3b82f6);
+        text-decoration: underline;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    :global(.giscus-frame) {
+        border-radius: 0.5rem;
+        border: 1px solid rgba(var(--text-main, 23 23 23) / 0.1);
+    }
+</style>
+
+<script>
+    function loadGiscusComments() {
+        const container = document.querySelector('.giscus');
+        const loading = document.getElementById('giscus-loading');
+        const error = document.getElementById('giscus-error');
+
+        if (!container) return;
+
+        // Si ya hay un iframe, no cargar de nuevo
+        if (container.querySelector('iframe.giscus-frame')) {
+            console.log('Giscus ya cargado');
+            if (loading) loading.style.display = 'none';
+            return;
+        }
+
+        console.log('Cargando Giscus...');
+
+        // Limpiar y mostrar loading
+        container.innerHTML = '';
+        if (loading) loading.style.display = 'block';
+        if (error) error.style.display = 'none';
+
+        // Crear script
+        const script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.crossOrigin = 'anonymous';
+        script.async = true;
+
+        // Configuración
+        script.dataset.repo = 'MarcosCarmonaGarcia/MarcosCarmonaGarcia.github.io';
+        script.dataset.repoId = 'R_kgDOP0MlLA';
+        script.dataset.category = 'General';
+        script.dataset.categoryId = 'DIC_kwDOP0MlLM4CwRFz';
+        script.dataset.mapping = 'pathname';
+        script.dataset.strict = '0';
+        script.dataset.reactionsEnabled = '1';
+        script.dataset.emitMetadata = '0';
+        script.dataset.inputPosition = 'bottom';
+        script.dataset.theme = 'preferred_color_scheme';
+        script.dataset.lang = 'es';
+
+        // Eventos
+        script.onload = () => {
+            console.log('✅ Script Giscus cargado');
+        };
+
+        script.onerror = () => {
+            console.error('❌ Error cargando Giscus');
+            if (loading) loading.style.display = 'none';
+            if (error) error.style.display = 'block';
+        };
+
+        container.appendChild(script);
+
+        // Verificar que se carge el iframe
+        setTimeout(() => {
+            if (container.querySelector('iframe.giscus-frame')) {
+                if (loading) loading.style.display = 'none';
+                console.log('✅ Giscus cargado completamente');
+            }
+        }, 3000);
+    }
+
+    // Cargar al inicio
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadGiscusComments);
+    } else {
+        loadGiscusComments();
+    }
+
+    // Para navegación SPA de Astro
+    document.addEventListener('astro:page-load', loadGiscusComments);
+    document.addEventListener('astro:after-swap', () => {
+        setTimeout(loadGiscusComments, 100);
+    });
+</script>

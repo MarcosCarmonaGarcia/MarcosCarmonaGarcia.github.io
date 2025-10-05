@@ -100,12 +100,26 @@ const { class: className = '' } = Astro.props;
 </style>
 
 <script>
+    let giscusLoaded = false;
+
     function initGiscus() {
         const loadingElement = document.getElementById('giscus-loading');
         const errorElement = document.getElementById('giscus-error');
         const giscusContainer = document.querySelector('.giscus');
 
-        if (!giscusContainer) return;
+        if (!giscusContainer) {
+            console.log('No se encontró el contenedor de Giscus');
+            return;
+        }
+
+        // Si ya está cargado, no hacer nada
+        if (giscusContainer.querySelector('iframe.giscus-frame')) {
+            console.log('Giscus ya está cargado');
+            if (loadingElement) loadingElement.style.display = 'none';
+            return;
+        }
+
+        console.log('Inicializando Giscus...');
 
         // Limpiar contenido previo
         giscusContainer.innerHTML = '';
@@ -128,18 +142,14 @@ const { class: className = '' } = Astro.props;
         script.setAttribute('data-input-position', 'bottom');
         script.setAttribute('data-theme', 'preferred_color_scheme');
         script.setAttribute('data-lang', 'es');
-        script.setAttribute('data-loading', 'lazy');
+        script.setAttribute('data-loading', 'eager'); // Cambiar de lazy a eager
         script.setAttribute('crossorigin', 'anonymous');
         script.async = true;
 
         // Manejar carga exitosa
         script.onload = function () {
             console.log('✅ Giscus script cargado correctamente');
-
-            // Ocultar loading después de un breve delay
-            setTimeout(() => {
-                if (loadingElement) loadingElement.style.display = 'none';
-            }, 2000);
+            giscusLoaded = true;
         };
 
         // Manejar errores de carga
@@ -148,6 +158,47 @@ const { class: className = '' } = Astro.props;
             if (loadingElement) loadingElement.style.display = 'none';
             if (errorElement) errorElement.style.display = 'block';
         };
+
+        // Añadir script al DOM
+        giscusContainer.appendChild(script);
+
+        // Timeout para detectar si se carga correctamente
+        setTimeout(() => {
+            const iframe = giscusContainer.querySelector('iframe.giscus-frame');
+            if (iframe) {
+                console.log('✅ Giscus iframe detectado');
+                if (loadingElement) loadingElement.style.display = 'none';
+            } else if (loadingElement && loadingElement.style.display !== 'none') {
+                console.warn('⚠️ Giscus no se cargó en el tiempo esperado');
+            }
+        }, 5000);
+    }
+
+    // Función que se ejecuta cuando el DOM está listo
+    function onDOMReady() {
+        console.log('DOM listo, inicializando Giscus...');
+        // Pequeño delay para asegurar que todo esté renderizado
+        setTimeout(initGiscus, 100);
+    }
+
+    // Función que se ejecuta después de las transiciones de Astro
+    function onAstroReady() {
+        console.log('Astro navegación completada, inicializando Giscus...');
+        giscusLoaded = false; // Reset flag
+        setTimeout(initGiscus, 200);
+    }
+
+    // Event listeners
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', onDOMReady);
+    } else {
+        // DOM ya está listo
+        onDOMReady();
+    }
+
+    // Para navegación de Astro
+    document.addEventListener('astro:page-load', onAstroReady);
+    document.addEventListener('astro:after-swap', onAstroReady);
 
         // Añadir script al DOM
         giscusContainer.appendChild(script);
