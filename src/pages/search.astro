@@ -1,0 +1,121 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostPreview from '../components/PostPreview.astro';
+import SearchBox from '../components/SearchBox.astro';
+
+const query = Astro.url.searchParams.get('q') || '';
+const posts = await getCollection('blog');
+
+let filteredPosts = posts;
+if (query) {
+    const searchTerms = query
+        .toLowerCase()
+        .split(' ')
+        .filter((term) => term.length > 0);
+    filteredPosts = posts.filter((post) => {
+        const searchText = `${post.data.title} ${post.data.excerpt || ''} ${post.body || ''}`.toLowerCase();
+        return searchTerms.every((term) => searchText.includes(term));
+    });
+}
+---
+
+<BaseLayout
+    title={query ? `Búsqueda: ${query}` : 'Buscar en el blog'}
+    description={query ? `Resultados de búsqueda para "${query}"` : 'Busca contenido en el blog'}
+    showHeader={false}
+>
+    <div class="max-w-3xl mx-auto">
+        <h1 class="mb-8 text-2xl leading-tight font-serif italic sm:text-4xl">
+            {query ? `Resultados para: "${query}"` : 'Buscar en el blog'}
+        </h1>
+
+        <div class="mb-8">
+            <SearchBox />
+        </div>
+
+        {
+            query && (
+                <div class="mb-6 text-main/70">
+                    {filteredPosts.length === 0
+                        ? 'No se encontraron resultados'
+                        : `${filteredPosts.length} resultado${filteredPosts.length !== 1 ? 's' : ''} encontrado${filteredPosts.length !== 1 ? 's' : ''}`}
+                </div>
+            )
+        }
+
+        {
+            filteredPosts.length > 0 ? (
+                <div class="search-results-container">
+                    {filteredPosts.map((post) => (
+                        <PostPreview post={post} />
+                    ))}
+                </div>
+            ) : (
+                query && (
+                    <div class="text-center py-12">
+                        <div class="text-main/60 mb-4">
+                            <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-serif mb-2">No se encontraron resultados</h2>
+                        <p class="text-main/70 mb-6">Intenta con términos diferentes o revisa la ortografía.</p>
+                        <div class="suggestions-container text-sm text-main/60">
+                            <p>
+                                <strong>Sugerencias:</strong>
+                            </p>
+                            <ul class="suggestions-list list-disc list-inside">
+                                <li>Usa palabras más generales</li>
+                                <li>Revisa la ortografía</li>
+                                <li>Intenta con sinónimos</li>
+                                <li>Usa menos palabras en tu búsqueda</li>
+                            </ul>
+                        </div>
+                    </div>
+                )
+            )
+        }
+
+        {
+            !query && (
+                <div class="text-center py-12">
+                    <div class="text-main/60 mb-4">
+                        <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-serif mb-2">Busca contenido en el blog</h2>
+                    <p class="text-main/70">Escribe palabras clave para encontrar artículos relacionados.</p>
+                </div>
+            )
+        }
+    </div>
+</BaseLayout>
+
+<style>
+    .search-results-container > :global(* + *) {
+        margin-top: 2rem;
+    }
+
+    .suggestions-container > * + * {
+        margin-top: 0.5rem;
+    }
+
+    .suggestions-list > * + * {
+        margin-top: 0.25rem;
+    }
+</style>
+
+<script>
+    // Rellenar el campo de búsqueda con el query de la URL
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q');
+        const searchInput = document.getElementById('search-input') as HTMLInputElement;
+
+        if (query && searchInput) {
+            searchInput.value = query;
+        }
+    });
+</script>
