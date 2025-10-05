@@ -1,0 +1,202 @@
+---
+interface Props {
+    class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`giscus-container ${className}`}>
+    <!-- Mensaje de carga -->
+    <div id="giscus-loading" class="giscus-loading">
+        <p>Cargando comentarios...</p>
+    </div>
+
+    <!-- Contenedor para Giscus -->
+    <div
+        class="giscus"
+        data-repo="MarcosCarmonaGarcia/MarcosCarmonaGarcia.github.io"
+        data-repo-id="R_kgDOP0MlLA"
+        data-category="General"
+        data-category-id="DIC_kwDOP0MlLM4CwRFz"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="es"
+        data-loading="lazy"
+    >
+    </div>
+
+    <!-- Mensaje de error si no funciona -->
+    <div id="giscus-error" class="giscus-error hidden">
+        <p>❌ No se pudieron cargar los comentarios.</p>
+        <p>Esto puede deberse a:</p>
+        <ul>
+            <li>GitHub Discussions no está configurado correctamente</li>
+            <li>La aplicación Giscus no está instalada</li>
+            <li>Problemas de configuración</li>
+        </ul>
+        <p><a href="https://github.com/MarcosCarmonaGarcia/MarcosCarmonaGarcia.github.io/discussions" target="_blank">Ver discussions en GitHub →</a></p>
+    </div>
+</div>
+
+<style>
+    .giscus-container {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        min-height: 200px;
+    }
+
+    .giscus {
+        width: 100%;
+        min-height: 150px;
+    }
+
+    .giscus-loading {
+        text-align: center;
+        padding: 2rem;
+        color: rgba(var(--text-main, 23 23 23) / 0.6);
+        font-style: italic;
+    }
+
+    .giscus-error {
+        padding: 1.5rem;
+        border: 1px solid rgba(var(--text-main, 23 23 23) / 0.2);
+        border-radius: 0.5rem;
+        background-color: rgba(var(--text-main, 23 23 23) / 0.05);
+        color: rgba(var(--text-main, 23 23 23) / 0.7);
+    }
+
+    .giscus-error ul {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+    }
+
+    .giscus-error li {
+        margin: 0.5rem 0;
+    }
+
+    .giscus-error a {
+        color: var(--text-accent, #3b82f6);
+        text-decoration: underline;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* Estilos para el iframe de Giscus cuando se carga */
+    :global(.giscus-frame) {
+        border-radius: 0.5rem;
+        border: 1px solid rgba(var(--text-main, 23 23 23) / 0.1);
+    }
+
+    :global(.dark .giscus-frame) {
+        border-color: rgba(var(--text-main, 242 241 236) / 0.1);
+    }
+</style>
+
+<script>
+    function initGiscus() {
+        const loadingElement = document.getElementById('giscus-loading');
+        const errorElement = document.getElementById('giscus-error');
+        const giscusContainer = document.querySelector('.giscus');
+
+        if (!giscusContainer) return;
+
+        // Limpiar contenido previo
+        giscusContainer.innerHTML = '';
+
+        // Mostrar loading
+        if (loadingElement) loadingElement.style.display = 'block';
+        if (errorElement) errorElement.style.display = 'none';
+
+        // Crear script de Giscus
+        const script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.setAttribute('data-repo', 'MarcosCarmonaGarcia/MarcosCarmonaGarcia.github.io');
+        script.setAttribute('data-repo-id', 'R_kgDOP0MlLA');
+        script.setAttribute('data-category', 'General');
+        script.setAttribute('data-category-id', 'DIC_kwDOP0MlLM4CwRFz');
+        script.setAttribute('data-mapping', 'pathname');
+        script.setAttribute('data-strict', '0');
+        script.setAttribute('data-reactions-enabled', '1');
+        script.setAttribute('data-emit-metadata', '0');
+        script.setAttribute('data-input-position', 'bottom');
+        script.setAttribute('data-theme', 'preferred_color_scheme');
+        script.setAttribute('data-lang', 'es');
+        script.setAttribute('data-loading', 'lazy');
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
+
+        // Manejar carga exitosa
+        script.onload = function () {
+            console.log('✅ Giscus script cargado correctamente');
+
+            // Ocultar loading después de un breve delay
+            setTimeout(() => {
+                if (loadingElement) loadingElement.style.display = 'none';
+            }, 2000);
+        };
+
+        // Manejar errores de carga
+        script.onerror = function () {
+            console.error('❌ Error al cargar Giscus');
+            if (loadingElement) loadingElement.style.display = 'none';
+            if (errorElement) errorElement.style.display = 'block';
+        };
+
+        // Añadir script al DOM
+        giscusContainer.appendChild(script);
+
+        // Timeout para mostrar error si no se carga en 10 segundos
+        setTimeout(() => {
+            if (loadingElement && loadingElement.style.display !== 'none') {
+                console.warn('⚠️ Giscus tardó demasiado en cargar');
+                loadingElement.style.display = 'none';
+                if (errorElement) errorElement.style.display = 'block';
+            }
+        }, 10000);
+    }
+
+    // Inicializar cuando se carga la página
+    document.addEventListener('DOMContentLoaded', initGiscus);
+
+    // Reinicializar después de navegación de Astro
+    document.addEventListener('astro:after-swap', initGiscus);
+
+    // Escuchar mensajes de Giscus para cambios de tema
+    window.addEventListener('message', (event) => {
+        if (event.origin !== 'https://giscus.app') return;
+
+        if (event.data.giscus && event.data.giscus.discussion) {
+            console.log('✅ Giscus discussion cargada:', event.data.giscus.discussion);
+            const loadingElement = document.getElementById('giscus-loading');
+            if (loadingElement) loadingElement.style.display = 'none';
+        }
+    });
+
+    // Función para cambiar tema de Giscus (simplificada)
+    function updateGiscusTheme() {
+        // Por ahora deshabilitado para evitar errores de TypeScript
+        console.log('Cambio de tema detectado');
+    }
+
+    // Observer para detectar cambios de tema
+    const themeObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                updateGiscusTheme();
+            }
+        });
+    });
+
+    // Observar cambios en el tema
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+</script>

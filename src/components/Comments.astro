@@ -1,0 +1,119 @@
+---
+import { giscusConfig } from '../data/giscus-config';
+
+interface Props {
+    class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`giscus-container ${className}`}>
+    <div
+        class="giscus"
+        data-repo={giscusConfig.repo}
+        data-repo-id={giscusConfig.repoId}
+        data-category={giscusConfig.category}
+        data-category-id={giscusConfig.categoryId}
+        data-mapping={giscusConfig.mapping}
+        data-strict={giscusConfig.strict}
+        data-reactions-enabled={giscusConfig.reactionsEnabled}
+        data-emit-metadata={giscusConfig.emitMetadata}
+        data-input-position={giscusConfig.inputPosition}
+        data-theme={giscusConfig.theme}
+        data-lang={giscusConfig.lang}
+        data-loading={giscusConfig.loading}
+    >
+    </div>
+</div>
+
+<style>
+    .giscus-container {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .giscus {
+        width: 100%;
+    }
+
+    /* Asegurar que Giscus respete el tema del sitio */
+    :global(.giscus-frame) {
+        border-radius: 0.5rem;
+        border: 1px solid rgba(var(--text-main, 23 23 23) / 0.1);
+    }
+
+    /* Ajustes para tema oscuro */
+    :global(.dark .giscus-frame) {
+        border-color: rgba(var(--text-main, 242 241 236) / 0.1);
+    }
+</style>
+
+<script define:vars={{ giscusConfig }}>
+    // Función para cargar Giscus
+    function loadGiscus() {
+        const script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.setAttribute('data-repo', giscusConfig.repo);
+        script.setAttribute('data-repo-id', giscusConfig.repoId);
+        script.setAttribute('data-category', giscusConfig.category);
+        script.setAttribute('data-category-id', giscusConfig.categoryId);
+        script.setAttribute('data-mapping', giscusConfig.mapping);
+        script.setAttribute('data-strict', giscusConfig.strict);
+        script.setAttribute('data-reactions-enabled', giscusConfig.reactionsEnabled);
+        script.setAttribute('data-emit-metadata', giscusConfig.emitMetadata);
+        script.setAttribute('data-input-position', giscusConfig.inputPosition);
+        script.setAttribute('data-theme', giscusConfig.theme);
+        script.setAttribute('data-lang', giscusConfig.lang);
+        script.setAttribute('data-loading', giscusConfig.loading);
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
+
+        const giscusContainer = document.querySelector('.giscus');
+        if (giscusContainer) {
+            // Limpiar contenido previo
+            giscusContainer.innerHTML = '';
+            giscusContainer.appendChild(script);
+        }
+    }
+
+    // Función para cambiar el tema de Giscus cuando cambia el tema del sitio
+    function updateGiscusTheme() {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe && iframe.contentWindow) {
+            const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            iframe.contentWindow.postMessage({ giscus: { setConfig: { theme } } }, 'https://giscus.app');
+        }
+    }
+
+    // Observer para detectar cambios de tema
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                updateGiscusTheme();
+            }
+        });
+    });
+
+    // Cargar Giscus cuando se carga la página
+    document.addEventListener('DOMContentLoaded', () => {
+        loadGiscus();
+
+        // Observar cambios en el tema
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    });
+
+    // Recargar Giscus después de navegación de Astro
+    document.addEventListener('astro:after-swap', () => {
+        loadGiscus();
+
+        // Reiniciar el observer
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    });
+</script>

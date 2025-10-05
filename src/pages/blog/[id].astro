@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
+import Comments from '../../components/CommentsSimple.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import PostPreview from '../../components/PostPreview.astro';
 import Subscribe from '../../components/Subscribe.astro';
@@ -67,6 +68,10 @@ const { Content } = await render(post);
             >
         </div>
     </article>
+
+    <!-- Sección de comentarios -->
+    <Comments class="my-16 sm:my-24" />
+
     {
         (prevPost || nextPost) && (
             <div class="my-16 sm:my-24">
