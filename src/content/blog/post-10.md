@@ -26,7 +26,7 @@ Probamos unas credenciales ficticias y capturamos la petición con Burpsuite.
 
 [![Repeater](/repeater_nosql.png)](/repeater_nosql.png)
 
-Mandamos la petición al repeater y preparamos nuestro payload, en este caso será una expresión regular que dirá que el mail NO es el que ponemos y la pass tampoco. Esto hará un bypass vocándonos todos las credenciales de la base de datos.
+Mandamos la petición al repeater y preparamos nuestro payload, en este caso será una expresión regular que dirá que el mail NO es el que ponemos y la pass tampoco. Esto hará un bypass volcándonos todos las credenciales de la base de datos.
 
 ```bash
 {"email": {"$ne": "pato"}, "password": {"$ne": "bar"}}
