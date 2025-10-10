@@ -16,7 +16,7 @@ seo:
 
 ***Nota***: El laboratorio es [Dockerlabs](https://mega.nz/file/4GtWBbQZ#HMo12GRIHABDnyRK2mO_AKuFhPrMO-oXO7hLQpmyadA)
 
-## Procedimeinto
+## Procedimiento
 
 Como podemos ver, la web nos muestra un campo input donde podemos introducir una dirección y hacer ping. Nosotros vamos a introducir un comado para ejecutarlo.
 Después de varias pruebas, veo que no basta con introducir el comando por sí solo, si no que hay que concatenarlo junto con el comando que tiene que ejecutar el input, en este caso una ip donde hacer ping.
