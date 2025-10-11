@@ -22,7 +22,7 @@ Tenemos una web en la que tenemos un input para enviar datos, así que probamos 
 
 [![stti](/lab_ssti.png)](/lab_ssti.png)
 
-En este caso enviamos {{2*2}} y vemos como trara estos datos, si los suma es que es vulenrable y está ejecutando comandos. Vemos que sí, que los suma.
+En este caso enviamos {{2*2}} y vemos como trata estos datos, si los suma es que es vulnerable y está ejecutando comandos. Vemos que sí, que los suma.
 
 [![suma](/suma_ssti.png)](/suma_ssti.png)
 
