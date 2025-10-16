@@ -12,7 +12,7 @@ seo:
 
 ![Nuclei](/nuclei.png)
 
-***Resumen***: En el post enterior, hemos tratado el tema de los escáneres de vulnerabilidades haciendo referemcia a [Nikto](https://marcoscarmonagarcia.github.io/blog/post-16/), en este caso veremos otro escaner llamado Nuclei.
+***Resumen***: En el post enterior, hemos tratado el tema de los escáneres de vulnerabilidades haciendo referencia a [Nikto](https://marcoscarmonagarcia.github.io/blog/post-16/), en este caso veremos otro escaner llamado Nuclei.
 
 ***Nota***: Nuclei es mucho más amigable que Nikto, o mí, por lo menos, me gusta más.
 
