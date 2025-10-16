@@ -23,7 +23,7 @@ Suponiendo que tenemos una web que queremos escanar, tan solo tenemos que poner 
 nikto -h http://192.168.1.32/mutillidae
 ````
 
-Y vemos como nos encuentra vulenrabilidades.
+Y vemos como nos encuentra vulnerabilidades.
 
 [![Resultado](/resultado_nikto.png)](/resultado_nikto.png)
 
