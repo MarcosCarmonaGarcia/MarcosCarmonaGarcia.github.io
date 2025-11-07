@@ -12,7 +12,7 @@ seo:
 
 ![SUID](/suid.png)
 
-***Resumen***: Una vez que henmos vulnerado un activo, necesitamos escalar privilegios a un usuario con los máximos permisos.
+***Resumen***: Una vez que hemos vulnerado un activo, necesitamos escalar privilegios a un usuario con los máximos permisos.
 
 ***Nota***: La máquina que se usa es de la plataforma [Dockerlabs](https://mega.nz/file/rZlAERjY#152uP-zS7pTC0hbPaZB7aO6_puij633u4pW-jpMuctk) y se llama Injection.
 
